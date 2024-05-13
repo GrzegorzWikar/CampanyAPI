@@ -32,7 +32,7 @@ namespace Company.Controllers
         // GET: OrderItems/Details/5
         public async Task<ActionResult<OrderItem>> GetOrderItem(int id)
         {
-           OrderItem? orderItem = await _context.OrderItem.FindAsync(id);
+            OrderItem? orderItem = await _context.OrderItem.FindAsync(id);
 
             if (orderItem == null)
             {
@@ -48,7 +48,7 @@ namespace Company.Controllers
             _context.OrderItem.Add(orderItem);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(CreateOrderItem),new { id = orderItem.Id}, orderItem);
+            return CreatedAtAction(nameof(CreateOrderItem), new { id = orderItem.Id }, orderItem);
         }
 
         [HttpPut("{id}")]
@@ -65,10 +65,10 @@ namespace Company.Controllers
             {
                 await _context.SaveChangesAsync();
             }
-            catch(DbUpdateConcurrencyException)
+            catch (DbUpdateConcurrencyException)
             {
                 if (await OrderItemExists(id))
-                 {
+                {
                     throw;
                 }
                 else
@@ -76,6 +76,22 @@ namespace Company.Controllers
                     return NotFound();
                 }
             }
+
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> OrderItemDelete(int id)
+        {
+            OrderItem? orderItem = await _context.OrderItem.FindAsync(id);
+
+            if (orderItem == null)
+            {
+                return NotFound();
+            }
+
+            _context.OrderItem.Remove(orderItem); ;
+            await _context.SaveChangesAsync();
 
             return NoContent();
         }
