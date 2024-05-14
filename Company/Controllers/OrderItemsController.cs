@@ -41,7 +41,7 @@ namespace Company.Controllers
 
             return Ok(orderItem);
         }
-
+        [HttpPost]
         // POST: api/OrderItems
         public async Task<ActionResult<OrderItem>> CreateOrderItem(OrderItem orderItem)
         {
