@@ -4,8 +4,8 @@ namespace Company.Models
 {
     public class OrderItem
     {
-        public int Id { get; set; }
-        public DTOProductGet Product { get; set; }
-        public int Quantity { get; set; }
+        public required int Id { get; set; }
+        public required DTOProductGet Product { get; set; }
+        public required int Quantity { get; set; }
     }
 }

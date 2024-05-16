@@ -17,5 +17,6 @@ namespace Company.Data
         public DbSet<Company.Models.Customer> Customer { get; set; } = default!;
         public DbSet<Company.Models.Order> Order { get; set; } = default!;
         public DbSet<Company.Models.OrderItem> OrderItem { get; set; } = default!;
+        public DbSet<Company.Models.Payment> Payment { get; set; } = default!;
     }
 }

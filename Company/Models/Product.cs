@@ -4,13 +4,13 @@ namespace Company.Models
 {
     public class Product
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public string Description { get; set; }
-        public bool Available { get; set; }
-        public Category Category { get; set; } 
-        public decimal Quantity { get; set; } 
-        public Unit Unit { get; set; }
+        public required int Id { get; set; }
+        public required string Name { get; set; }
+        public required decimal Price { get; set; }
+        public string? Description { get; set; }
+        public required bool Available { get; set; }
+        public required Category Category { get; set; } 
+        public required decimal Quantity { get; set; } 
+        public required Unit Unit { get; set; }
     }
 }
